@@ -1,4 +1,4 @@
-import { ClassSerializerInterceptor, Controller, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Controller, Get, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Observable } from "rxjs";
 import { CreateTransactionByFileUseCase } from "src/core/use-cases/transactions/create-transaction-by-file.usecase";
@@ -39,6 +39,15 @@ export class TransactionsController {
     @UseInterceptors(FileInterceptor('file'))
     public createByFile(@UploadedFile() file: Express.Multer.File): Observable<TransactionCnabModel[]> {
         return this.createTransactionByFileUseCase.execute(file);
+    }
+
+    @ApiOperation({
+        summary: "Listagem de transações",
+        description: "Lista todas as transações",
+    })
+    @Get()
+    public getAll(): Observable<TransactionCnabModel[]> {
+        return this.getAllTransactionsUseCase.execute();
     }
 
 }

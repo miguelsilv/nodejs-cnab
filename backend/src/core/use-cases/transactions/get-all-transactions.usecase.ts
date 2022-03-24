@@ -1,8 +1,10 @@
+import { Injectable } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { UseCase } from "src/core/base/use-case.base";
 import { TransactionRepository } from "src/core/domain/repositories/transaction/transaction.repository";
 import { TransactionCnabModel } from "src/shared/models/transaction/transaction-cnab.model";
 
+@Injectable()
 export class GetAllTransactionsUseCase implements UseCase<TransactionCnabModel[]> {
     
     constructor(

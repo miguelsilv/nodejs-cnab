@@ -4,6 +4,7 @@ import { TransactionRepository } from "src/core/domain/repositories/transaction/
 import { TransactionCnabModel } from "src/shared/models/transaction/transaction-cnab.model";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
+import { transactionType } from "src/shared/constansts/transaction-type.const";
 
 export class TransactionDataRepository implements TransactionRepository {
 
@@ -32,24 +33,32 @@ export class TransactionDataRepository implements TransactionRepository {
         ));
 
         return saved.pipe(
-            map((transactions) =>
-                transactions.map(transaction => (<TransactionCnabModel>{
-                    id: transaction.id,
-                    typeId: transaction.type,
-                    date: transaction.date,
-                    value: transaction.value,
-                    cpf: transaction.cpf,
-                    creditCard: transaction.creditCard,
-                    hour: transaction.hour,
-                    owner: transaction.owner,
-                    store: transaction.store,
-                }))
-            )
+            map((transactions) => this.entityToModel(transactions))
         );
     }
 
+
     public getAll(): Observable<TransactionCnabModel[]> {
-        throw new Error("Method not implemented.");
+        const transactions = this.database.find();
+
+        return from(transactions).pipe(
+            map((transactions) => this.entityToModel(transactions))
+        );
+    }
+
+
+    private entityToModel(transactions: Transaction[]): TransactionCnabModel[] {
+        return transactions.map(transaction => (<TransactionCnabModel>{
+            id: transaction.id,
+            type: transactionType[transaction.type],
+            date: transaction.date,
+            value: transaction.value,
+            cpf: transaction.cpf,
+            creditCard: transaction.creditCard,
+            hour: transaction.hour,
+            owner: transaction.owner,
+            store: transaction.store,
+        }));
     }
 
 }
