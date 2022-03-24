@@ -12,18 +12,20 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TransactionListComponent } from './transaction-list/transaction-list.component';
 import { TransactionsService } from './transactions.service';
-import { HttpClientModule } from '@angular/common/http';
+import { TransactionSaveComponent } from './transaction-save/transaction-save.component';
+import { TransactionComponent } from './transaction.component';
 
 @NgModule({
   declarations: [
     TransactionListComponent,
+    TransactionSaveComponent,
+    TransactionComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     TransactionRoutingModule,
-    HttpClientModule,
     MatInputModule,
     MatIconModule,
     MatSelectModule,
