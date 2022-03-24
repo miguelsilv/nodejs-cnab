@@ -3,7 +3,7 @@ import { Transaction } from 'src/app/shared/models/transaction.model';
 import { TransactionsService } from '../transactions.service';
 
 @Component({
-  selector: 'app-transaction',
+  selector: 'app-transaction-list',
   templateUrl: './transaction-list.component.html',
   styleUrls: ['./transaction-list.component.scss']
 })

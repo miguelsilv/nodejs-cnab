@@ -1,11 +1,31 @@
-<div class="drag-file" (click)="inputFile.click()">
-    <input #inputFile class="input-file" type="file">
-    <div class="drag-file-button">
-      <div class="drag-file-icon">
+<div draggable="true" class="file" [ngClass]="{'file-added':file }" (click)="inputFile.click()" (drag)="teste()">
+  <input #inputFile class="input-file" type="file" (change)="fileChange(inputFile)">
+
+  <ng-container *ngIf="!file">
+
+    <div class="file-button">
+      <div class="file-icon">
         <mat-icon>cloud_upload</mat-icon>
       </div>
-      <div class="drag-file-text">
-        <span>Clique aqui ou arraste um arquivo para adiciona-lo</span>
+
+      <div class="file-text">
+        <span>Clique aqui para adicionar um arquivo</span>
       </div>
     </div>
-  </div>
+
+  </ng-container>
+
+  <ng-container *ngIf="file">
+    <div class="file-button">
+
+      <div class="file-icon">
+        <mat-icon>save_alt</mat-icon>
+      </div>
+
+      <div class="file-text">
+        <span>Arquivo adicionado: {{file.name}}</span>
+      </div>
+
+    </div>
+  </ng-container>
+</div>

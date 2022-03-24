@@ -1,33 +1,49 @@
-.drag-file {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 200px;
-    border: 1px dashed #8047a2;
-    border-radius: 5px;
-    background-color: #fafafa;
-    cursor: pointer;
+.file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  border: 1px dashed #8047a2;
+  border-radius: 5px;
+  background-color: #fafafa;
+  cursor: pointer;
 
-    .input-file {
-      display: none;
-    }
+  &:hover {
+    background-color: #f0f0f0;
+  }
 
-    .drag-file-button {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+  &.file-added {
+    border: 1px dashed #10b761;
 
-      .drag-file-icon mat-icon {
-        font-size: 3rem;
-        color: #8047a2;
-      }
+    .file-button {
 
-      .drag-file-text span {
-        font-size: 1.5rem;
-        color: #8047a2;
-        text-align: center;
+      .file-text span,
+      .file-icon mat-icon {
+        color: #10b761;
       }
     }
   }
+
+  .input-file {
+    display: none;
+  }
+
+  .file-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .file-icon mat-icon {
+      font-size: 3rem;
+      color: #8047a2;
+    }
+
+    .file-text span {
+      font-size: 1.5rem;
+      color: #8047a2;
+      text-align: center;
+    }
+  }
+}
