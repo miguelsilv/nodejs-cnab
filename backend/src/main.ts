@@ -11,6 +11,7 @@ async function bootstrap() {
     .setDescription('API CNAB')
     .setVersion('1.0')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('doc', app, document);
 
