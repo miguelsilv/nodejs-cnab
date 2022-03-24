@@ -1,24 +1,102 @@
 <div class="container">
-    <div class="header">
-        <h3 class="title">
-            Gerenciamento de transações
-        </h3>
-        <p class="description">
-            Aqui você pode gerenciar as transações e importar arquivos cnab.
-        </p>
+  <div class="header">
+    <h3 class="title">
+      Gerenciamento de transações
+    </h3>
+    <p class="description">
+      Aqui você pode gerenciar as transações e importar arquivos cnab.
+    </p>
+  </div>
+
+  <div class="content">
+
+    <div class="list">
+      <div class="list-item">
+        <mat-card *ngFor="let transaction of transactions">
+          <div class="item-content">
+            <div class="item-column">
+              <div class="item-column-label">
+                Tipo
+              </div>
+              <div class="item-column-value">
+                {{ transaction.type.name }}
+              </div>
+            </div>
+
+            <div class="item-column">
+              <div class="item-column-label">
+                Data
+              </div>
+              <div class="item-column-value">
+                {{ transaction.date | date: 'dd/MM/yyyy' }}
+              </div>
+            </div>
+
+            <div class="item-column">
+              <div class="item-column-label">
+                Valor
+              </div>
+              <div class="item-column-value">
+                {{ transaction.value | currency: 'BRL' }}
+              </div>
+            </div>
+
+            <div class="item-column">
+              <div class="item-column-label">
+                CPF
+              </div>
+              <div class="item-column-value">
+                {{ transaction.cpf }}
+              </div>
+            </div>
+
+            <div class="item-column">
+              <div class="item-column-label">
+                Cartão
+              </div>
+              <div class="item-column-value">
+                {{ transaction.creditCard }}
+              </div>
+            </div>
+
+            <div class="item-column">
+              <div class="item-column-label">
+                Hora
+              </div>
+              <div class="item-column-value">
+                {{ transaction.hour }}
+              </div>
+            </div>
+
+            <div class="item-column">
+              <div class="item-column-label">
+                Dono
+              </div>
+              <div class="item-column-value">
+                {{ transaction.owner }}
+              </div>
+            </div>
+
+            <div class="item-column">
+              <div class="item-column-label">
+                Loja
+              </div>
+              <div class="item-column-value">
+                {{ transaction.store }}
+              </div>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card *ngIf="transactions.length == 0">
+          <div class="item-content">
+            <div class="item-column empty">
+              Nenhuma transação encontrada.
+            </div>
+          </div>
+        </mat-card>
+      </div>
     </div>
 
-    <div class="content">
-       <div class="list">
-            <div class="list-item">
-                <mat-card *ngFor="let transaction of transactions">
-                    <div class="item-content">
-                        <div class="item-column">
-                            {{transaction.owner}}
-                        </div>
-                    </div>
-                </mat-card>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

@@ -18,10 +18,13 @@ export class TransactionListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getTransactions();
+  }
+
+  private getTransactions() {
     this.transactionsService.getTransactions()
       .subscribe(transactions => {
         this.transactions = transactions;
       });
   }
-
 }

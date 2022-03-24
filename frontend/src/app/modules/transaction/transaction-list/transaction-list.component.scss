@@ -1,9 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
+  max-width: 80vw;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
 
   .header {
     .title {
@@ -20,32 +21,61 @@
   }
 
   .content {
+
     .list {
-      .list-item mat-card {
-        background: #ffffff 0% 0% no-repeat padding-box;
-        box-shadow: 0px 2px 2px #0000000f;
-        border-radius: 4px;
-        margin-bottom: 8px;
-        padding: 8px;
+      .list-item {
+        margin-top: 50px;
+        margin-bottom: 100px;
+        overflow: auto;
+        height: 50vh;
 
-        &.item-disabled {
-          opacity: 0.7;
-          .slide-label {
-            color: #707070 !important;
+        mat-card {
+          background: #ffffff 0% 0% no-repeat padding-box;
+          box-shadow: 0px 2px 2px #0000000f;
+          border-radius: 4px;
+          margin-bottom: 8px;
+          padding: 16px;
+
+          &.item-disabled {
+            opacity: 0.7;
+
+            .slide-label {
+              color: #707070 !important;
+            }
           }
-        }
 
-        .item-content {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .item-column {
+          .item-content {
             display: flex;
-            flex: 2;
-            color: #707070;
-            font-size: 14px;
-            padding-left: 10px;
-            font-weight: bold;
+            justify-content: space-between;
+            align-items: center;
+
+
+            .item-column {
+              display: flex;
+              flex: 2;
+              color: #707070;
+              font-size: 14px;
+              padding-left: 10px;
+              font-weight: bold;
+              flex-direction: column;
+
+              &.empty {
+                justify-content: center;
+              }
+
+              .item-column-label {
+                font-size: 12px;
+                font-weight: bold;
+                color: #707070;
+              }
+
+              .item-column-value {
+                font-size: 14px;
+                color: #444444;
+                word-break: break-word;
+                white-space: nowrap;
+              }
+            }
           }
         }
       }
