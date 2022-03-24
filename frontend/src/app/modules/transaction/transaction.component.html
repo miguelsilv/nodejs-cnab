@@ -9,7 +9,28 @@
   </div>
 
   <div class="content">
-    <app-transaction-save></app-transaction-save>
-    <app-transaction-list></app-transaction-list>
+    <div>
+      <app-transaction-save (inserted)="afterSave()"></app-transaction-save>
+    </div>
+
+    <div class="buttons">
+      <button mat-flat-button color="primary" [ngClass]="{disabled:!saveRef?.file}" (click)="save();">
+        Importar arquivo cnab
+      </button>
+
+      <button mat-flat-button color="primary" (click)="list()">
+        Atualizar lista
+      </button>
+
+    </div>
+
+    <div *ngIf="!loading">
+      <app-transaction-list></app-transaction-list>
+    </div>
+
+    <div *ngIf="loading && listRef?.transactions?.length === 0" class="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+
   </div>
 </div>

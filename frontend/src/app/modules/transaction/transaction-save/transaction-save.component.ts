@@ -27,9 +27,6 @@ export class TransactionSaveComponent implements OnInit {
     }
   }
 
-  public teste(){
-    console.log("teste");
-  }
   public save(): void {
     this.transactionsService.createByFile(this.file!)
       .subscribe(() => {

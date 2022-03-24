@@ -21,7 +21,7 @@ export class TransactionListComponent implements OnInit {
     this.getTransactions();
   }
 
-  private getTransactions() {
+  public getTransactions() {
     this.transactionsService.getTransactions()
       .subscribe(transactions => {
         this.transactions = transactions;

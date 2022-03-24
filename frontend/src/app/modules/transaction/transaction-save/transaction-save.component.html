@@ -1,4 +1,4 @@
-<div draggable="true" class="file" [ngClass]="{'file-added':file }" (click)="inputFile.click()" (drag)="teste()">
+<div draggable="true" class="file" [ngClass]="{'file-added':file }" (click)="inputFile.click()">
   <input #inputFile class="input-file" type="file" (change)="fileChange(inputFile)">
 
   <ng-container *ngIf="!file">

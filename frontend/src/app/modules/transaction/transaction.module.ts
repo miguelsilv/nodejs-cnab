@@ -14,6 +14,8 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
 import { TransactionsService } from './transactions.service';
 import { TransactionSaveComponent } from './transaction-save/transaction-save.component';
 import { TransactionComponent } from './transaction.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { TransactionComponent } from './transaction.component';
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     TransactionsService
