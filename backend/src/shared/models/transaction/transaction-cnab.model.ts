@@ -54,7 +54,11 @@ export class TransactionCnabModel {
     @Expose()
     @ApiProperty()
     public get hour(): string {
-        return this.line.substring(42, 48);
+        const hour = this.line.substring(42, 44);
+        const minute = this.line.substring(44, 46);
+        const second = this.line.substring(46, 48);
+
+        return `${hour}:${minute}:${second}`;
     }
 
 

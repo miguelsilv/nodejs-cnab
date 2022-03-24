@@ -21,7 +21,7 @@ export class Transaction {
     @Column({ length: 12 })
     public creditCard: string;
 
-    @Column({ length: 6 })
+    @Column({ type: 'time' })
     public hour: string;
 
     @Column({ length: 14 })
