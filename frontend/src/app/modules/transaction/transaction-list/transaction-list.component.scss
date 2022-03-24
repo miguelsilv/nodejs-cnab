@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .header {
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #444444;
+      margin-bottom: 0px;
+    }
+
+    .description {
+      color: #707070;
+      font-size: 16px;
+    }
+  }
+
+  .content {
+    .list {
+      .list-item mat-card {
+        background: #ffffff 0% 0% no-repeat padding-box;
+        box-shadow: 0px 2px 2px #0000000f;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        padding: 8px;
+
+        &.item-disabled {
+          opacity: 0.7;
+          .slide-label {
+            color: #707070 !important;
+          }
+        }
+
+        .item-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .item-column {
+            display: flex;
+            flex: 2;
+            color: #707070;
+            font-size: 14px;
+            padding-left: 10px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
