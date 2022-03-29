@@ -12,19 +12,13 @@ RUN npm run build
 
 # deploy
 FROM nginx:alpine
-WORKDIR /usr/share/nginx/html
 
 # limpando configurações iniciais do nginx
-RUN rm -rf ./*
-#RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf /usr/share/nginx/html/*
 
 # Copiando o build do angular para o nginx
-#COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /usr/src/frontend/dist/frontend .
-
-
-# abrindo a porta 80
-EXPOSE 80
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /usr/src/frontend/dist/frontend /usr/share/nginx/html/
 
 # Rodando o nginx
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
