@@ -1,0 +1,66 @@
+version: "3.5"
+
+services:
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    restart: always
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8080:80
+    volumes:
+      - logs-volume:/usr/src/frontend/logs:rw
+    depends_on:
+      - api
+
+  api:
+    container_name: api
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    restart: always
+    env_file: .env
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    volumes:
+      - logs-volume:/usr/src/backend/logs:rw
+    depends_on:
+      - db
+
+  db:
+    container_name: ${MYSQL_HOST}
+    image: mysql:5.7
+    #command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_TCP_PORT: ${MYSQL_PORT}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB_NAME}
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
+    volumes:
+      - mysql-volume:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    depends_on:
+      - db
+    # links:
+    #   - db:${MYSQL_HOST}
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+      ADMINER_DESIGN: galkaev
+
+volumes:
+  mysql-volume: null
+  logs-volume: null

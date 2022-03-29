@@ -27,7 +27,7 @@
 
         .item-column {
           display: flex;
-          flex: 2;
+          flex: 1;
           color: #707070;
           font-size: 14px;
           padding-left: 10px;
@@ -49,6 +49,9 @@
             color: #444444;
             word-break: break-word;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 8vw;
           }
         }
       }
