@@ -2,7 +2,7 @@
 ![img](https://i.imgur.com/ASBRAbM.png)
 
 # Como usar a aplicação.
-Você pode acessar a aplicação [clicando aqui](https://vast-peak-20174.herokuapp.com/).
+Você pode acessar a aplicação [clicando aqui](https://immense-chamber-56245.herokuapp.com/).
 
 Já a documentação do swagger fica disponivel [neste link](https://vast-peak-20174.herokuapp.com/doc/)
 
