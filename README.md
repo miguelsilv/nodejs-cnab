@@ -1,3 +1,6 @@
+# Visualização esperada
+![img](https://i.imgur.com/ASBRAbM.png)
+
 # Como usar a aplicação.
 Você pode acessar a aplicação [clicando aqui](https://vast-peak-20174.herokuapp.com/).
 
