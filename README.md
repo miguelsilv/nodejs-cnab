@@ -1,3 +1,13 @@
+# Como usar a aplicação.
+Você pode acessar a aplicação [clicando aqui](https://vast-peak-20174.herokuapp.com/).
+
+Já a documentação do swagger fica disponivel [neste link](https://vast-peak-20174.herokuapp.com/doc/)
+
+
+- O projeto já funciona com docker, mas caso queira rodar localmente, basta criar um arquivo .env seguindo o .env-example dentro da pasta ./backend e em seguida rodar o comando `npm install` dentro das pastas ./frontend e ./backend. Apos instalar as dependencias basta que execute o comando `npm start` em ambas as pastas que serão executados tanto frontend como backend.
+
+ps: infelizmente não tive um tempo livre para escrever uma documentação melhor e nem prepara testes unitários.
+
 # Desafio programação - para vaga desenvolvedor
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
